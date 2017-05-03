@@ -18,8 +18,6 @@ int main(int argc, char* argv[])
 	while(1)
 	{
 		int cfd = tcp_accept(sdf);
-		int ddd[100],i=0;
-		ddd[i] = cfd;
 		char buf[100] = {0};
 		char buf_one[100] = {0};
 		if (recv(cfd, buf, sizeof(buf), 0) == -1)//从客户端接收数据存于buf中
