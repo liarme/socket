@@ -1,4 +1,5 @@
 #include "tcp_net_socket.h"
+//线程函数
 void thread_1(void)  
 {  
 	time_t timep;  
@@ -22,7 +23,7 @@ void thread_1(void)
 	printf("%s\n",buf);
 	close(sdf);
 } 
-
+//主函数
 int main (int argc, char *argv[])
 {
 	config_file_testing(argv[0]);
