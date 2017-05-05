@@ -5,7 +5,7 @@ int main (int argc, char *argv[])
 {
 	config_file_testing(argv[0]);
 	char ip[15],port[5];
-	FILE *xp=fopen("cliten.ini","r");
+	FILE *xp=fopen("client.ini","r");
 	if (xp != NULL){
 		fseek(xp,0L,SEEK_SET);
 		fscanf(xp,"%s %s",ip,port);
@@ -16,7 +16,7 @@ int main (int argc, char *argv[])
 	}
 	char buf[100]={0};
     int sdf = tcp_connect(ip,atoi(port));
-	send(sdf, argv, strlen(argv[1]), 0);
+	send(sdf, "Ann", strlen("Ann"), 0);
 	recv(sdf, buf, sizeof(buf), 0);
 	puts(buf);
 	close(sdf);
