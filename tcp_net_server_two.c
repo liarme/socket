@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 			exit(-1);
 		}
 		puts(buf);
-		mysql_server();
+		mysql_server(buf);
 		if (send(cfd, buf, sizeof(buf), 0) == -1)//从buf中取向cfd客户端发送数据
 		{
 			perror("send");

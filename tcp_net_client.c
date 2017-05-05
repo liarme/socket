@@ -1,6 +1,6 @@
 #include "tcp_net_socket.h"
 
-//主函数
+//客户端主函数
 int main (int argc, char *argv[])
 {
 	config_file_testing(argv[0]);
@@ -16,7 +16,7 @@ int main (int argc, char *argv[])
 	}
 	char buf[100]={0};
     int sdf = tcp_connect(ip,atoi(port));
-	send(sdf, "test", strlen("test"), 0);
+	send(sdf, argv, strlen(argv[1]), 0);
 	recv(sdf, buf, sizeof(buf), 0);
 	puts(buf);
 	close(sdf);
