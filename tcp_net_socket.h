@@ -22,5 +22,5 @@ extern void signalhandler(void);
 extern void config_file_testing (char *program_filename);//检查配置文件是否存在
 extern void write_config_file (char *role);//写入配置文件
 extern void init_daemon(void);//守护进程初始化函数
-int mysql_server (void);//mysql数据库
+int mysql_server (char *argv);//mysql数据库
 #endif
