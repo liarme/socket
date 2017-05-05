@@ -27,17 +27,17 @@ int main (int argc, char *argv[])
 	
 		query = "select * from student";
 		/*查询,成功则返回0*/
-		flag = mysql_real_query(&mysql, query, (unsigned int)strlen(query));
+		flag = mysql_real_query(conn_ptr, query, (unsigned int)strlen(query));
 		if(flag) {
-			printf("Query failed!\n");
+			printf("Query failed!\n");
 			return 0;
 		}else{
-			printf("[%s] made...\n", query);
+			printf("[%s] made...\n", query);
 		}
 		/*mysql_store_result讲全部的查询结果读取到客户端*/
-		res = mysql_store_result(conn_ptr);
+		res = mysql_store_result(conn_ptr);
 		/*mysql_fetch_row检索结果集的下一行*/
-		while(row = mysql_fetch_row(res)) {
+		while(row = mysql_fetch_row(res)) {
 		/*mysql_num_fields返回结果集中的字段数目*/
 			for(t=0; t<mysql_num_fields(res); t++)
 			{
