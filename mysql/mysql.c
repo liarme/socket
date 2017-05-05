@@ -26,7 +26,7 @@ int main (int argc, char *argv[])
 	
 		query = "select * from student";
 		/*查询，成功则返回0*/
-		flag = mysql_real_query(&mysql, query, (unsigned int)strlen(query));
+		flag = mysql_real_query(&mysql, query, (unsigned int)strlen(query));
 		if(flag) {
 			printf("Query failed!\n");
 			return 0;
