@@ -42,7 +42,7 @@ int main (int argc, char *argv[])
 		/*mysql_num_fields返回结果集中的字段数目*/
 			for(t=0; t<mysql_num_fields(res); t++)
 			{
-				printf("%s\t", row[t]);
+				printf("%s\t", row["student_name"]);
 			}
 			printf("\n");
 		}
