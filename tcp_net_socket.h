@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <time.h>
-#include "mysql.h"
+#include "mysql_server/mysql.h"
 extern int tcp_init(const char* ip,int port);
 extern int tcp_accept(int sdf);
 extern int tcp_connect(const char* ip,int port);

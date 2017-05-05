@@ -75,8 +75,8 @@ void signalhandler(void)//用于信号处理，让服务端在按下ctrl+c或Ctr
 }
 void config_file_testing (char *program_filename)//用于程序检测配置文件 服务端server.ini 客户端cliten.ini
 {
-	if (!strcmp(program_filename,"./cliten")){
-		char filename[] = "cliten.ini";
+	if (!strcmp(program_filename,"./client")){
+		char filename[] = "client.ini";
 		if (access(filename,F_OK)==-1)
 		{
 			if(creat(filename,0755)<0){
@@ -98,7 +98,7 @@ void config_file_testing (char *program_filename)//用于程序检测配置文�
 			}
 		}
 	}else{
-		printf ("程序必须名为server或cliten,并且用 ./ 运行\n");
+		printf ("程序必须名为server或client,并且用 ./ 运行\n");
 		exit(0);
 	}
 }
