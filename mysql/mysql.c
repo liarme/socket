@@ -15,6 +15,7 @@ int main (int argc, char *argv[])
 		//参数分别为：初始化的连接句柄指针，主机名（或者IP），用户名，密码，数据库名，0，NULL，0）后面三个参数在默认安装mysql>的情况下不用改  
 		if(conn_ptr){  
 				printf("Connection success\n");  
+				printf("%d\n",conn_ptr);  
 				}  
 		else {  
 				printf("Connection failed\n");  
