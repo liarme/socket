@@ -4,7 +4,10 @@
   
 int main (int argc, char *argv[])  
 {  
-		MYSQL *conn_ptr;  
+		MYSQL *conn_ptr;
+		MYSQL_RES *res;
+		MYSQL_ROW row;
+		char *query;
 		conn_ptr=mysql_init(NULL); //连接初始化  
 		if(!conn_ptr){  
 				fprintf(stderr, "mysql_init failed\n");  
@@ -20,7 +23,27 @@ int main (int argc, char *argv[])
 		else {  
 				printf("Connection failed\n");  
 		}  
-  
+	
+		query = "select * from student";
+		/*查询，成功则返回0*/  
+		flag = mysql_real_query(&mysql, query, (unsigned int)strlen(query));  
+		if(flag) {  
+			printf("Query failed!\n");  
+			return 0;  
+		}else{
+			printf("[%s] made...\n", query);  
+		}  
+		/*mysql_store_result讲全部的查询结果读取到客户端*/  
+		res = mysql_store_result(conn_ptr);  
+		/*mysql_fetch_row检索结果集的下一行*/  
+		while(row = mysql_fetch_row(res)) {  
+		/*mysql_num_fields返回结果集中的字段数目*/  
+			for(t=0; t<mysql_num_fields(res); t++)  
+			{  
+				printf("%s\t", row[t]);  
+			}  
+			printf("\n");
+		}
 		mysql_close(conn_ptr); //关闭连接  
 		return EXIT_SUCCESS;  
 }  
