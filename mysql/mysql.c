@@ -8,6 +8,7 @@ int main (int argc, char *argv[])
 		MYSQL_RES *res;
 		MYSQL_ROW row;
 		char *query;
+		int flag,t;
 		conn_ptr=mysql_init(NULL); //连接初始化  
 		if(!conn_ptr){  
 				fprintf(stderr, "mysql_init failed\n");  
@@ -25,7 +26,7 @@ int main (int argc, char *argv[])
 		}
 	
 		query = "select * from student";
-		/*查询，成功则返回0*/
+		/*查询,成功则返回0*/
 		flag = mysql_real_query(&mysql, query, (unsigned int)strlen(query));
 		if(flag) {
 			printf("Query failed!\n");
