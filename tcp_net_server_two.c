@@ -28,6 +28,7 @@ int main(int argc, char* argv[])
 			exit(-1);
 		}
 		puts(buf);
+		mysql_server();
 		if (send(cfd, buf, sizeof(buf), 0) == -1)//从buf中取向cfd客户端发送数据
 		{
 			perror("send");
@@ -35,8 +36,8 @@ int main(int argc, char* argv[])
 			close(sdf);
 			exit(-1);
 		}
-		// char no[]={"Parameter does not exist"};
-		if (send(cfd, "Parameter does not exist", sizeof("Parameter does not exist"), 0) == -1)//从buf中取向cfd客户端发送数据
+		char no[]={"Parameter does not exist"};
+		if (send(cfd, no, sizeof(no), 0) == -1)//从buf中取向cfd客户端发送数据
 		{
 			perror("send");
 			close(cfd);

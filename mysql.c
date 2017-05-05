@@ -1,8 +1,6 @@
-#include <stdlib.h>  
-#include <stdio.h>  
-#include "mysql.h"  
-  
-int main (int argc, char *argv[])  
+#include "tcp_net_socket.h"
+
+int mysql_server (void)
 {  
 		MYSQL *conn_ptr;  
 		conn_ptr=mysql_init(NULL); //连接初始化  
